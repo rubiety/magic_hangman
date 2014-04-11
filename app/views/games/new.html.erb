@@ -1,14 +1,14 @@
 <h1>New Hangman Game</h1>
 
-<% if @game.errors.any? %>
-  <ul>
-    <% @game.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <%= form_for @game do |f| %>
+  <% if @game.errors.any? %>
+    <ul>
+      <% @game.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <p>
     <label>Name of Word Chooser:</label>
     <%= f.text_field :word_chooser %>

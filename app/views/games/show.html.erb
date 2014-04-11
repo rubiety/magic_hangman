@@ -1,2 +1,19 @@
-<h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
+<h1>Game between <%= @game.word_chooser %> and <%= @game.guesser %></h1>
+
+
+<%= form_for [@game, @guess] do |f| %>
+  <% if @guess.errors.any? %>
+    <ul>
+      <% @guess.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <p>
+    <label>Guess</label>
+    <%= f.text_field :letter, :size => 1, :maxlength => 1 %>
+    <%= f.submit "Play" %>
+  </p>
+<% end %>
+
