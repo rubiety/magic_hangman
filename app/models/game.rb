@@ -7,6 +7,17 @@ class Game < ActiveRecord::Base
   validates :guesser, presence: true
   validates :word, length: { :minimum => 5, :maximum => 8 }
 
+  def letters
+    word.split(//)
+  end
+  
+  def guessed_letter?(letter)
+    guesses.correct.map(&:letter).include?(letter)
+  end
+
+  def guessed_word?
+    (letters - guesses.correct.map(&:letter)).empty?
+  end
 
   protected
 

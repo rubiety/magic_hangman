@@ -99,6 +99,10 @@
     transform: rotate(30deg);
     -webkit-transform: rotate(30deg);
   }
+}
 
-
+#letters {
+  font-size: 30px;
+  padding: 20px;
+  .letter { width: 40px; display: inline-block; padding: 10px; border-bottom: 2px solid black; }
 }

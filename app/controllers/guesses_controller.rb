@@ -4,8 +4,16 @@ class GuessesController < ApplicationController
     @guess = @game.guesses.new(guess_params)
 
     if @guess.save
-      flash[:confirm] = @guess.correct? ? "Correct!" : "Wrong."
-      redirect_to @game
+      if @game.guesses.incorrect.count >= 6
+        flash[:confirm] = "You lose!"
+        redirect_to new_game_path
+      elsif @game.guessed_word?
+        flash[:confirm] = "You win!"
+        redirect_to new_game_path
+      else
+        flash[:confirm] = @guess.correct? ? "Correct!" : "Wrong."
+        redirect_to @game
+      end
     else
       render "games/show"
     end

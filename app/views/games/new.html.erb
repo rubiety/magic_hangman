@@ -1,5 +1,9 @@
 <h1>New Hangman Game</h1>
 
+<% if flash[:confirm] %>
+  <h2><%= flash[:confirm] %></h2>
+<% end %>
+
 <%= form_for @game do |f| %>
   <% if @game.errors.any? %>
     <ul>

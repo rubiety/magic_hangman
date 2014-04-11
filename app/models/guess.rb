@@ -3,6 +3,9 @@ class Guess < ActiveRecord::Base
 
   before_validation :upcase_letter
 
+  scope :correct, -> { where(correct: true) }
+  scope :incorrect, -> { where(correct: false) }
+
   validates :letter, :format => { :with => /\A[A-Za-z\-]{1}\Z/, :message => "should be a letter or hypen" }
 
   before_create :calculate_correct
@@ -15,7 +18,7 @@ class Guess < ActiveRecord::Base
   end
 
   def calculate_correct
-    self.correct = (game.word.split(//) - game.guesses.map(&:letter)).include?(letter)
+    self.correct = (game.letters - game.guesses.map(&:letter)).include?(letter)
     true
   end
 

@@ -10,12 +10,32 @@
   <div id="top"></div>
   <div id="noose"></div>
 
-  <div id="head"></div>
-  <div id="body"></div>
-  <div id="left-arm"></div>
-  <div id="right-arm"></div>
-  <div id="left-leg"></div>
-  <div id="right-leg"></div>
+  <% if @game.guesses.incorrect.count >= 1 %>
+    <div id="head"></div>
+  <% end %>
+  <% if @game.guesses.incorrect.count >= 2 %>
+    <div id="body"></div>
+  <% end %>
+  <% if @game.guesses.incorrect.count >= 3 %>
+    <div id="left-arm"></div>
+  <% end %>
+  <% if @game.guesses.incorrect.count >= 4 %>
+    <div id="right-arm"></div>
+  <% end %>
+  <% if @game.guesses.incorrect.count >= 5 %>
+    <div id="left-leg"></div>
+  <% end %>
+  <% if @game.guesses.incorrect.count >= 6 %>
+    <div id="right-leg"></div>
+  <% end %>
+</div>
+
+<div id="letters">
+  <% @game.letters.each do |letter| %>
+    <span class="letter">
+      <%= @game.guessed_letter?(letter) ? letter : "&nbsp;".html_safe %>
+    </span>
+  <% end %>
 </div>
 
 <%= form_for [@game, @guess] do |f| %>
