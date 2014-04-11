@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140411021429) do
+ActiveRecord::Schema.define(version: 20140411022837) do
 
   create_table "games", force: true do |t|
     t.string   "word_chooser"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140411021429) do
     t.boolean  "won"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "word"
   end
 
   create_table "guesses", force: true do |t|
