@@ -1,6 +1,20 @@
 <h1>Game between <%= @game.word_chooser %> and <%= @game.guesser %></h1>
 
 
+<div id="hangman">
+  <div id="base"></div>
+  <div id="side"></div>
+  <div id="top"></div>
+  <div id="noose"></div>
+
+  <div id="head"></div>
+  <div id="body"></div>
+  <div id="left-arm"></div>
+  <div id="right-arm"></div>
+  <div id="left-leg"></div>
+  <div id="right-leg"></div>
+</div>
+
 <%= form_for [@game, @guess] do |f| %>
   <% if @guess.errors.any? %>
     <ul>

@@ -1,1 +1,104 @@
+#hangman {
+  position: relative;
+  width: 600px;
+  height: 500px;
 
+  #base {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: black;
+  }
+
+  #side {
+    position: absolute;
+    left: 150px;
+    bottom: 0;
+    height: 100%;
+    width: 2px;
+    background: black;
+  }
+
+  #top {
+    position: absolute;
+    top: 0;
+    left: 150px;
+    height: 2px;
+    width: 300px;
+    background: black;
+  }
+
+  #noose {
+    position: absolute;
+    left: 350px;
+    width: 2px;
+    height: 100px;
+    background: black;
+  }
+
+  #head {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    top: 100px;
+    left: 310px;
+    border: 2px solid black;
+  }
+
+  #body {
+    position: absolute;
+    top: 182px;
+    left: 350px;
+    width: 2px;
+    height: 120px;
+    background: black;
+  }
+
+  #left-arm {
+    position: absolute;
+    top: 120px;
+    left: 281px;
+    width: 100px;
+    height: 100px;
+    border-left: 2px solid black;
+    transform: rotate(-60deg);
+    -webkit-transform: rotate(-60deg);
+  }
+
+  #right-arm {
+    position: absolute;
+    top: 206px;
+    left: 369px;
+    width: 100px;
+    height: 100px;
+    border-left: 2px solid black;
+    transform: rotate(60deg);
+    -webkit-transform: rotate(60deg);
+  }
+
+  #left-leg {
+    position: absolute;
+    top: 319px;
+    left: 282px;
+    width: 100px;
+    height: 100px;
+    border-top: 2px solid black;
+    transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+  }
+
+  #right-leg {
+    position: absolute;
+    top: 319px;
+    left: 318px;
+    width: 100px;
+    height: 100px;
+    border-top: 2px solid black;
+    transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+  }
+
+
+}
