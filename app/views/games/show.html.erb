@@ -1,5 +1,8 @@
 <h1>Game between <%= @game.word_chooser %> and <%= @game.guesser %></h1>
 
+<% if flash[:confirm] %>
+  <h2><%= flash[:confirm] %></h2>
+<% end %>
 
 <div id="hangman">
   <div id="base"></div>
