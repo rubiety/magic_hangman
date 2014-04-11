@@ -19,6 +19,10 @@ class Game < ActiveRecord::Base
     (letters - guesses.correct.map(&:letter)).empty?
   end
 
+  def failed_game?
+    guesses.incorrect.count >= 6
+  end
+
   protected
 
   def upcase_word
